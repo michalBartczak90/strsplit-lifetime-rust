@@ -1,4 +1,4 @@
-// #![warn(missing_debug_implementations, rust_2018_idioms)]
+#![warn(missing_debug_implementations, rust_2018_idioms)]
 
 #[derive(Debug)]
 pub struct StrSplit<'haystack, 'delimiter> {
@@ -30,7 +30,7 @@ impl<'haystack> Iterator for StrSplit<'haystack, '_> { // '_ tells that lifetime
     }
 }
 
-fn until_char(s: &str, c: char) -> &str {
+pub fn until_char(s: &str, c: char) -> &str {
     StrSplit::new(s, &format!("{}", c)).next().expect("Error")
 }
 
